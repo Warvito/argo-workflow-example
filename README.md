@@ -45,7 +45,11 @@ kubectl delete ns argo
 
 4) install MinIO using this (link)[https://argoproj.github.io/argo-workflows/configure-artifact-repository/]
 
-5) Submit job
+# Submitting a job
 ```
 argo submit -n argo Pipelines/ToyExample/toy_example.yaml
 ```
+
+# References
+
+https://argoproj.github.io/argo-workflows/examples/
