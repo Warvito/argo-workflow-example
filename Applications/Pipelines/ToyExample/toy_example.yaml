@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: test-pipeline-
+spec:
+  entrypoint: main-workflow
+  templates:
+    - name: main-workflow
+      dag:
+        tasks:
+          - name: step-preprocessing
+            template: preprocessing
+          - name: step-classification
+            dependencies: [step-preprocessing]
+            template: classification
+            arguments:
+              artifacts:
+                - name: image
+                  from: "{{tasks.step-preprocessing.outputs.artifacts.preprocessed-img}}"
+
+    - name: preprocessing
+      container:
+        image: warvito/preprocessing-argo:v2
+        command: [python]
+        args: ["run.py"]
+      outputs:
+        artifacts:
+        - name: preprocessed-img
+          path: /tmp/preprocessed-img.pt
+
+    - name: classification
+      inputs:
+        artifacts:
+          - name: image
+            path: /tmp/image.pt
+      container:
+        image: warvito/toy-example-classifier-argo:v2
+        command: [python]
+        args: ["run.py"]
