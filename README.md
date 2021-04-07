@@ -15,7 +15,7 @@ kubectl create ns argo
 kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/stable/manifests/quick-start-minimal.yaml
 ```
 
-Next, Download the latest Argo CLI (v3.x) from the releases page.
+Next, Download the latest Argo CLI (v3.x) from the [releases page](https://github.com/argoproj/argo-workflows/releases).
 
 Finally, submit an example workflow: 
 
