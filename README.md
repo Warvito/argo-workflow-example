@@ -1,7 +1,5 @@
 # Argo workflow - Example
 
-Based on https://github.com/argoproj/argo-ml-demo
-
 # Installation
 
 This example was implemented using Minikube and Argo-workflow v3.
