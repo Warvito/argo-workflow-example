@@ -43,7 +43,7 @@ kubectl delete -n argo -f https://raw.githubusercontent.com/argoproj/argo-workfl
 kubectl delete ns argo
 ```
 
-4) install MinIO using this (link)[https://argoproj.github.io/argo-workflows/configure-artifact-repository/]
+4) install MinIO using this [link](https://argoproj.github.io/argo-workflows/configure-artifact-repository/)
 
 # Submitting a job
 ```
